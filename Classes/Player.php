@@ -32,7 +32,18 @@ class Player {
             $output .= "</p>";
         }
         $output .= "</div>";
-        $output .= "<hr />";
         return $output;
+    }
+
+    public function scoreOfCardsInHand():int {
+        $totalScore = 0;
+        foreach($this->playerCards as $card){
+            $totalScore += $card->score;
+        }
+        return $totalScore;
+    }
+
+    public function playerHasAceScoreOverTwentyOne(){
+
     }
 }
