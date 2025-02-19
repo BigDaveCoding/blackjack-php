@@ -43,7 +43,11 @@ class Player {
         return $totalScore;
     }
 
-    public function playerHasAceScoreOverTwentyOne(){
-
+    public function playerHasAceScoreOverTwentyOne(): void{
+        foreach($this->playerCards as $card){
+            if ($card->score == 11){
+                $card->score = 1;
+            }
+        }
     }
 }
