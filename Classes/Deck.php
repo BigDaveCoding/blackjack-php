@@ -56,10 +56,20 @@ class Deck {
         return rand(0, count($this->deck) -1);
     }
 
+    // Private function which removes a card from the deck
+    // Will be called inside drawCard function
+    // When a card is drawn I want to remove it from the deck
+    private function removeCardFromDeck(int $index): void {
+        array_splice($this->deck, $index, 1);
+    }
+
     // Public function to draw a card from the deck
     // Returns an Object (Card)
     // uses private function of randomCardIndex() to generate a random index
     public function drawCard(): object{
-        return $this->deck[$this->randomCardIndex()];
+        $index = $this->randomCardIndex();
+        $cardObject = $this->deck[$index];
+        $this->removeCardFromDeck($index);
+        return $cardObject;
     }
 }
