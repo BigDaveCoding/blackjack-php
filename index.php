@@ -33,7 +33,19 @@ foreach($players as $player){
 
 // Display players cards
 foreach($players as $player){
+    // Creating player score variable for each player
+    $playerScore = $player->scoreOfCardsInHand();
+    // While score is less than 14...
+    while ($playerScore <= 14){
+        //player draws another card
+        $player->addCardToHand($deck->drawCard());
+        // player score is updated
+        $playerScore = $player->scoreOfCardsInHand();
+    }
+    //display player cards
     echo $player->displayCards();
+    //display player score of cards
+    echo "<p>Total score of $player->name cards: " . $playerScore . "</p>";
 }
 
 echo "<pre>";
