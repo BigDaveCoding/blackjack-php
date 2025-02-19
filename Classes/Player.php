@@ -3,11 +3,13 @@ declare(strict_types=1);
 
 class Player {
     // declaring property of playerCards as an empty array
+    public string $name;
     public array $playerCards = [];
 
-    public function __construct(array $playerCards){
+    public function __construct(string $name, array $playerCards){
         // This objects playerCards is equal to playerCards passed in when object is created
         // Will in most cases pass in an empty array unless testing
+        $this->name = $name;
         $this->playerCards = $playerCards;
     }
 
@@ -19,7 +21,18 @@ class Player {
 
     //function which returns players cards, so I can display them for debugging etc.
     // Can further edit this function to display information about the cards
-    public function displayCards(): array{
-        return $this->playerCards;
+    public function displayCards(): string{
+        $output = "<div>";
+        $output .= $this->name . " cards: ";
+        foreach($this->playerCards as $card){
+            $output .= "<p>";
+            $output .= $card->name . " of ";
+            $output .= $card->suit;
+            $output .= ": " . $card->score;
+            $output .= "</p>";
+        }
+        $output .= "</div>";
+        $output .= "<hr />";
+        return $output;
     }
 }
