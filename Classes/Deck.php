@@ -46,6 +46,20 @@ class Deck {
 
         // Shuffle is built in PHP function
         // Takes an array and randomises the order of elements
-        shuffle($this->deck);
+//        shuffle($this->deck);
+
+    }
+
+    // private function to generate a random number between 0 and deck length - 1
+    // private because I only need to access it within Deck class
+    private function randomCardIndex(): int {
+        return rand(0, count($this->deck) -1);
+    }
+
+    // Public function to draw a card from the deck
+    // Returns an Object (Card)
+    // uses private function of randomCardIndex() to generate a random index
+    public function drawCard(): object{
+        return $this->deck[$this->randomCardIndex()];
     }
 }
