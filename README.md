@@ -10,7 +10,6 @@ If either player goes over 21, the other player wins.
 If the scores are equal or both over 21 it should output a draw
 Important:
 Do NOT write a fancy HTML&CSS page - only simple text output
-Do not read the repo from the curriculum - you won’t learn if you read the answers!
 Keep it as simple as possible!
 Stretch goals
 Use any of the below as additional goals:
